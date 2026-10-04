@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda A TUM — Descargar | A TUM</title>
+<title>A TUM Store — Descargar | A TUM</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23C85C2A%27/%3E%3Cg fill=%27%23fff%27%3E%3Crect x=%2713%27 y=%2713%27 width=%2720%27 height=%2720%27 rx=%276%27/%3E%3Crect x=%2735%27 y=%2713%27 width=%2716%27 height=%2720%27 rx=%276%27 opacity=%27.75%27/%3E%3Crect x=%2713%27 y=%2735%27 width=%2720%27 height=%2716%27 rx=%276%27 opacity=%27.75%27/%3E%3Crect x=%2735%27 y=%2735%27 width=%2716%27 height=%2716%27 rx=%276%27 opacity=%27.5%27/%3E%3C/g%3E%3C/svg%3E">
 <meta name="theme-color" content="#1e1c1a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -568,6 +568,34 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
 @media(min-width:960px){.ah-copy .dl.dl-solo{margin:30px 0 0}}
 @media(max-width:560px){.dl.dl-solo{display:flex;width:100%;max-width:440px;border-radius:999px}}
 #hero .msg{color:rgba(255,255,255,.6)}
+
+/* ===== PANTALLA REAL DE A TUM STORE (clara) ===== */
+.av-screen.lt{background:#fcfcfd;color:#14161a;padding:0 .9em}
+.lt::after{background:linear-gradient(125deg,rgba(255,255,255,.5),transparent 34%)}
+.lt .av-status{color:#14161a}.lt .av-sys u{background:#14161a}
+.lt .av-bat{border-color:rgba(0,0,0,.5)}.lt .av-bat::before{background:#14161a}.lt .av-bat::after{background:rgba(0,0,0,.45)}
+.lt .av-home{background:#14161a}
+.ap-head{display:flex;align-items:center;gap:.6em;margin-top:.9em;padding-bottom:.9em;border-bottom:1px solid #e8eaee}
+.ap-t{flex:none;width:2.5em;height:2.5em;object-fit:contain}
+.ap-head b{display:block;white-space:nowrap;font:800 1.12em/1.05 var(--font-h);letter-spacing:-.03em}
+.ap-head b span{color:#8b8f97;font-weight:700}
+.ap-head small{display:block;margin-top:.25em;white-space:nowrap;color:#8b8f97;font:500 .62em var(--font-b)}
+.ap-sync{margin-left:auto;flex:none;width:2.1em;height:2.1em;border-radius:50%;background:#eef1f7;display:grid;place-items:center}
+.ap-h2{margin:1.1em 0 0;font:800 1.2em var(--font-h);letter-spacing:-.025em}
+.ap-sub{margin:.2em 0 0;color:#6f737b;font:500 .72em var(--font-b)}
+.ap-app{display:flex;align-items:center;gap:.65em;margin-top:1.1em}
+.ap-ico{flex:none;width:3.2em;height:3.2em;border-radius:.85em;box-shadow:0 .25em .6em rgba(0,0,0,.18)}
+.ap-app>div{flex:1;min-width:0}
+.ap-app b{display:block;font:700 .92em var(--font-b);white-space:nowrap}
+.ap-app small{display:block;white-space:nowrap;margin-top:.2em;color:#7d818a;font:500 .66em/1.35 var(--font-b)}
+.ap-btn{position:relative;overflow:hidden;flex:none;display:grid;place-items:center;width:7.4em;height:2.9em;padding:0;border-radius:99px;background:#e9edf4;color:#0b7fd0;font:700 .64em var(--font-b);letter-spacing:.03em}
+.ap-btn::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(11,127,208,.2);animation:apFill 6s ease-in-out infinite}
+.ap-btn i{grid-area:1/1;position:relative;font-style:normal;white-space:nowrap}
+.ap-btn .t1{animation:apT1 6s infinite}.ap-btn .t3{font-size:.8em;opacity:0;animation:apT3 6s infinite}
+@keyframes apFill{0%,22%{width:0;opacity:1}80%{width:100%;opacity:1}92%,100%{width:100%;opacity:0}}
+@keyframes apT1{0%,20%{opacity:1}24%,90%{opacity:0}95%,100%{opacity:1}}
+@keyframes apT3{0%,22%{opacity:0}26%,86%{opacity:1}90%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.ap-btn::before,.ap-btn i{animation:none!important}.ap-btn::before{width:0}.ap-btn .t1{opacity:1}}
 </style>
 </head>
 <body>
@@ -598,7 +626,7 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
     <div class="ah-copy">
     <p class="ah-eyebrow">Android · Versión 1.0.0</p>
     <h1 class="ah-h1">Todas tus apps<br><span class="acc">en un solo lugar.</span><span class="dim">Instalá la tienda en minutos.</span></h1>
-    <p class="ah-lead">La <b>Tienda A TUM</b> reúne las apps para tu negocio. Descargala una vez y desde ahí <b>instalás, actualizás y abrís todo</b> — sin complicaciones.</p>
+    <p class="ah-lead"><b>A TUM Store</b> es la tienda oficial de aplicaciones de A TUM. Descargala una vez y desde ahí <b>instalás, actualizás y abrís todo</b> — sin complicaciones.</p>
     <form class="dl" id="gate" autocomplete="off">
       <label class="dl-field">
         <svg class="dl-key" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3m-3.5 3.5 2.5 2.5M14 9l2 2"/></svg>
@@ -608,7 +636,7 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
         <svg class="dl-ic dl-ic-down" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
         <svg class="dl-ic dl-ic-ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
         <i class="dl-spin" aria-hidden="true"></i>
-        <span class="dl-t">Descargar Tienda A TUM</span>
+        <span class="dl-t">Descargar A TUM Store</span>
       </button>
     </form>
     <p class="msg" id="msg" role="status">Si Chrome avisa, elegí “Descargar de todos modos”.</p>
@@ -617,44 +645,26 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
       <span class="dl-help">¿No tenés código? <a href="https://wa.me/59164542598">Pedilo por WhatsApp<svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m1 1 5 5-5 5"/></svg></a></span>
     </div>
     </div>
-    <div class="av-stage" role="img" aria-label="Tienda A TUM en un celular: muestra AvisoPagos como app destacada, se instala con un toque y avisa cuando termina">
+    <div class="av-stage" role="img" aria-label="A TUM Store en un celular: tienda oficial de aplicaciones con AvisoPagos, versión 1.0.4, lista para descargar">
       <div class="av-device">
       <div class="av-arcs" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="av-phone" aria-hidden="true">
-        <div class="av-screen">
+        <div class="av-screen lt">
           <div class="av-island"></div>
           <div class="av-status"><span>10:24</span><span class="av-sys"><u></u><u></u><u></u><u></u><em class="av-bat"></em></span></div>
 
-          <div class="av-head">
-            <i class="av-logo"><svg viewBox="0 0 24 24" width="58%" height="58%" fill="#fff"><rect x="3" y="3" width="8" height="8" rx="2.4"/><rect x="13" y="3" width="8" height="8" rx="2.4" opacity=".8"/><rect x="3" y="13" width="8" height="8" rx="2.4" opacity=".8"/><rect x="13" y="13" width="8" height="8" rx="2.4" opacity=".55"/></svg></i>
-            <div><b>Tienda A TUM</b><small>Apps para tu negocio</small></div>
-            <em class="av-on"><s class="av-dot"></s>Oficial</em>
+          <div class="ap-head">
+            <img class="ap-t" src="data:image/png;base64,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" alt="A TUM" width="144" height="144">
+            <div><b>A TUM <span>Store</span></b><small>Tienda oficial de aplicaciones</small></div>
+            <i class="ap-sync"><svg width="58%" height="58%" viewBox="0 0 24 24" fill="none" stroke="#1b7fd6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 0-14-5.3L4 9m0-5v5h5M4 12a8 8 0 0 0 14 5.3L20 15m0 5v-5h-5"/></svg></i>
           </div>
-
-          <div class="st-search"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>Buscar apps</div>
-
-          <div class="st-feat">
-            <small>App destacada</small>
-            <div class="st-row">
-              <i class="av-bank o"><svg viewBox="0 0 24 24" width="64%" height="64%" fill="#fff"><rect x="2" y="9" width="2.6" height="6" rx="1.3"/><rect x="6.6" y="5.5" width="2.6" height="13" rx="1.3"/><rect x="11.2" y="2.5" width="2.6" height="19" rx="1.3"/><rect x="15.8" y="6.5" width="2.6" height="11" rx="1.3"/><rect x="20.4" y="9.5" width="2.6" height="5" rx="1.3" opacity=".7"/></svg></i>
-              <span><b>AvisoPagos</b><em>Cobros anunciados en voz alta</em></span>
-              <span class="st-btn"><i class="t1">Obtener</i><i class="t3">Instalando</i><i class="t2">Abrir</i></span>
-            </div>
+          <h3 class="ap-h2">Aplicaciones</h3>
+          <p class="ap-sub">Instala y actualiza tus aplicaciones</p>
+          <div class="ap-app">
+            <svg class="ap-ico" viewBox="0 0 48 48"><rect width="48" height="48" rx="12" fill="#0b0b0b"/><circle cx="20" cy="24" r="12" fill="#2fd35a"/><path d="m14.5 24.5 4 4 8-9" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><g fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M34 18.5c1.8 3.4 1.8 7.6 0 11"/><path d="M38 15.5c2.8 5.2 2.8 11.8 0 17"/></g></svg>
+            <div><b>AvisoPagos</b><small>Versión 1.0.4<br>Al día</small></div>
+            <span class="ap-btn"><i class="t1">DESCARGAR</i><i class="t3">DESCARGANDO</i></span>
           </div>
-
-          <div class="av-live">
-            <div class="av-live-row r1"><i class="av-bank o">A</i><div><small>Descarga · ahora</small><b>AvisoPagos instalada</b></div><span class="av-eq"><s></s><s></s><s></s><s></s></span></div>
-            <div class="av-live-row r2"><i class="av-bank a">T</i><div><small>Tienda · ahora</small><b>Todo está al día</b></div><span class="av-eq"><s></s><s></s><s></s><s></s></span></div>
-          </div>
-
-          <p class="av-lab">Muy pronto</p>
-          <ul class="av-list">
-            <li><i class="av-bank n">+</i><span>Nueva app<small>En preparación</small></span><b class="m">Pronto</b></li>
-            <li><i class="av-bank n">+</i><span>Nueva app<small>En preparación</small></span><b class="m">Pronto</b></li>
-          </ul>
-
-          <div class="av-ban b1"><i class="av-bank o">A</i><div><small>Tienda A TUM · ahora</small><b>AvisoPagos instalada</b></div></div>
-          <div class="av-ban b2"><i class="av-bank a">+</i><div><small>Tienda A TUM · ahora</small><b>Nueva app disponible</b></div></div>
           <div class="av-home"></div>
         </div>
       </div>
@@ -714,7 +724,7 @@ form.addEventListener("submit", async function(ev){
   if(!canvas) return;
   const ctx = canvas.getContext('2d');
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const BANKS = ['AvisoPagos','Tienda A TUM','Nueva app','Actualización'];
+  const BANKS = ['AvisoPagos','A TUM Store','Nueva app','Actualización'];
   const AMOUNTS = ['Instalada','Lista','Al día'];
   let W,H,pings=[],chips=[],energy=.5,next=300,last=0;
 

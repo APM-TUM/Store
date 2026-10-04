@@ -599,7 +599,11 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
     <p class="ah-eyebrow">Android · Versión 1.0.0</p>
     <h1 class="ah-h1">Todas tus apps<br><span class="acc">en un solo lugar.</span><span class="dim">Instalá la tienda en minutos.</span></h1>
     <p class="ah-lead">La <b>Tienda A TUM</b> reúne las apps para tu negocio. Descargala una vez y desde ahí <b>instalás, actualizás y abrís todo</b> — sin complicaciones.</p>
-    <form class="dl dl-solo" id="gate">
+    <form class="dl" id="gate" autocomplete="off">
+      <label class="dl-field">
+        <svg class="dl-key" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3m-3.5 3.5 2.5 2.5M14 9l2 2"/></svg>
+        <input id="codigo" name="codigo-descarga" type="password" inputmode="numeric" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Tu código de descarga" aria-label="Código de descarga" required>
+      </label>
       <button class="dl-btn" id="btn" type="submit">
         <svg class="dl-ic dl-ic-down" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
         <svg class="dl-ic dl-ic-ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>
@@ -610,7 +614,7 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
     <p class="msg" id="msg" role="status">Si Chrome avisa, elegí “Descargar de todos modos”.</p>
     <div class="dl-meta">
       <span class="dl-file"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM15.53 2.16l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.98 5.98 0 0 0 6 7h12a5.98 5.98 0 0 0-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>APK para Android</span>
-      <span class="dl-help">¿Dudas? <a href="https://wa.me/59164542598">Escribinos por WhatsApp<svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m1 1 5 5-5 5"/></svg></a></span>
+      <span class="dl-help">¿No tenés código? <a href="https://wa.me/59164542598">Pedilo por WhatsApp<svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m1 1 5 5-5 5"/></svg></a></span>
     </div>
     </div>
     <div class="av-stage" role="img" aria-label="Tienda A TUM en un celular: muestra AvisoPagos como app destacada, se instala con un toque y avisa cuando termina">
@@ -668,19 +672,37 @@ footer{position:relative;z-index:2;background:rgba(10,8,6,.9)}
   <a href="https://apm-tum.github.io/ATUM/">Conocé más de A TUM</a>
 </footer>
 <script>
-/* Cambiá el nombre del repositorio y del archivo si usás otros */
-const APK_URL = "https://github.com/APM-TUM/TiendaATUM/releases/latest/download/TiendaATUM.apk";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwAHmbmxp3RIlm3NXCidpdlb4_COAiGej0PYl17QWL3cXXqsEWug54V3h1t4o8G440HBg/exec";
+const APK_URL = "https://github.com/APM-TUM/Store/releases/download/Version/ATUMStore.apk";
 const form = document.getElementById("gate"), btn = document.getElementById("btn"),
-      msg = document.getElementById("msg"), lbl = btn.querySelector(".dl-t"),
-      LBL0 = lbl.textContent, MSG0 = msg.textContent;
-form.addEventListener("submit", function(ev){
+      msg = document.getElementById("msg"), inp = document.getElementById("codigo"),
+      lbl = btn.querySelector(".dl-t"), LBL0 = lbl.textContent, MSG0 = msg.textContent;
+function say(t, cls){ msg.textContent = t; msg.className = "msg " + (cls || ""); }
+/* estados del control: null | loading | done | err */
+function state(s, t){
+  form.classList.remove("is-loading","is-done","is-err");
+  if(s) form.classList.add("is-" + s);
+  lbl.textContent = t || LBL0;
+}
+inp.addEventListener("input", function(){ if(form.classList.contains("is-err")){ state(null); say(MSG0); } });
+form.addEventListener("submit", async function(ev){
   ev.preventDefault();
-  form.classList.add("is-done"); lbl.textContent = "Descargando…";
-  msg.textContent = "Tu descarga empezó. Abrí el archivo desde las notificaciones.";
-  msg.className = "msg ok";
-  const a = document.createElement("a"); a.href = APK_URL; a.download = "TiendaATUM.apk";
-  document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(function(){ form.classList.remove("is-done"); lbl.textContent = LBL0; msg.textContent = MSG0; msg.className = "msg"; }, 6000);
+  const codigo = inp.value.trim();
+  if(!codigo){ state("err"); say("Ingresá tu código.", "err"); inp.focus(); return; }
+  btn.disabled = true; state("loading", "Verificando…"); say("Verificando código…");
+  try{
+    const r = await fetch(SCRIPT_URL + "?accion=validar&codigo=" + encodeURIComponent(codigo));
+    const d = await r.json();
+    if(!d.ok){ state("err"); say(d.error || "No se pudo verificar el código.", "err"); return; }
+    state("done", "Descargando…");
+    say("Código correcto. Tu descarga empezó.", "ok");
+    inp.value = "";
+    const a = document.createElement("a"); a.href = APK_URL; a.download = "ATUMStore.apk";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ if(form.classList.contains("is-done")){ state(null); say(MSG0); } }, 4000);
+  }catch(e){
+    state("err"); say("No pudimos conectar. Revisá tu internet e intentá de nuevo.", "err");
+  }finally{ btn.disabled = false; }
 });
 </script>
 <script>
